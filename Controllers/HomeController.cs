@@ -19,7 +19,7 @@ namespace OnlineBookstore.Controllers
             repo = temp;
         }
 
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookType, int pageNum = 1)
         {
             int numResults = 10;
             int pageNumber = pageNum;
@@ -27,13 +27,14 @@ namespace OnlineBookstore.Controllers
             var pagen = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(b => b.Category == bookType || bookType == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNumber - 1) * numResults)
                 .Take(numResults),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = (bookType == null ? repo.Books.Count() : repo.Books.Where(x => x.Category == bookType).Count()),
                     BooksPerPage = numResults,
                     CurrentPage = pageNumber
 

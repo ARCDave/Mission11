@@ -12,13 +12,11 @@
         <span class="navbar-brand ml-2">OnlineBookstore</span>
     </div>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-            </ul>
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
+            <a class="btn btn-secondary" href="/Cart">Cart</a>
         </div>
+
         <div class="col-9">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -30,7 +28,8 @@
                     @RenderBody()
                 </main>
             </div>
-
+        </div>
+    </div> 
             
             <script src="~/lib/jquery/dist/jquery.min.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
