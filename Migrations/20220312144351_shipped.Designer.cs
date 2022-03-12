@@ -9,7 +9,7 @@ using OnlineBookstore.Models;
 namespace OnlineBookstore.Migrations
 {
     [DbContext(typeof(BookstoreContext))]
-    [Migration("20220312132408_shipped")]
+    [Migration("20220312144351_shipped")]
     partial class shipped
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

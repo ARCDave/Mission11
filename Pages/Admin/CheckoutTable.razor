@@ -13,14 +13,15 @@
             {
                 <tr>
                     <td>@c.Name</td>
-                    <td>@c.AddressLine1</td>
-                    <td>@c.AddressLine2</td>
-                    <td>@c.AddressLine3</td>
-                    <td>@c.City</td>
-                    <td>@c.State</td>
                     <td>@c.Zip</td>
-                    <td>@c.Annonymous</td>
-                    <td>@c.Shipped</td>
+                    <th>Book</th>
+                    <th>Quantity</th>
+
+                    <td>
+                        <button class="btn btn-sm btn-danger" @onclick="@(x => CheckoutSelected.InvokeAsync(c.CheckoutId))">
+                            @ButtonLabel
+                        </button>
+                    </td>
                 </tr>
 
                 @foreach (CartLineItem cli in c.Lines)
