@@ -36,5 +36,9 @@ namespace OnlineBookstore.Models
         public string Country { get; set; }
 
         public bool Annonymous { get; set; }
+
+        [BindNever]
+        public bool Shipped { get; set; } = false;
+
     }
 }

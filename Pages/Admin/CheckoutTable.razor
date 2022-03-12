@@ -1,0 +1,56 @@
+﻿<table class="table table-sm table-bordered">
+
+    <thead>
+        <tr>
+            <th colspan="5" class="text-center">@TableTitle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Checkouts?.Count() > 0)
+        {
+            @foreach (OnlineBookstore.Models.Checkout c in Checkouts)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.AddressLine1</td>
+                    <td>@c.AddressLine2</td>
+                    <td>@c.AddressLine3</td>
+                    <td>@c.City</td>
+                    <td>@c.State</td>
+                    <td>@c.Zip</td>
+                    <td>@c.Annonymous</td>
+                    <td>@c.Shipped</td>
+                </tr>
+
+                @foreach (CartLineItem cli in c.Lines)
+                {
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>@cli.Book.Title</td>
+                        <td>@cli.Quantity</td>
+                    </tr>
+
+
+                }
+            }
+        }
+    </tbody>
+
+
+</table>
+
+@code {
+
+    [Parameter]
+    public string TableTitle { get; set; } = "CartLineItems";
+
+    [Parameter]
+    public IEnumerable<OnlineBookstore.Models.Checkout> Checkouts { get; set; }
+
+    [Parameter]
+    public string ButtonLabel { get; set; } = "Shipped";
+
+    [Parameter]
+    public EventCallback<int> CheckoutSelected { get; set; }
+}
