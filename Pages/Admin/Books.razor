@@ -73,8 +73,8 @@
         BookData = await repo.Books.ToListAsync();
     }
 
-    public string GetDetailsUrl(long id) =>  $"/admin/projects/details/{id}";
-    public string GetEditUrl(long id) => $"/admin/projects/edit/{id}";
+    public string GetDetailsUrl(long id) =>  $"/admin/books/details/{id}";
+    public string GetEditUrl(long id) => $"/admin/books/edit/{id}";
 
     public async Task RemoveBook (Book b)
     {
