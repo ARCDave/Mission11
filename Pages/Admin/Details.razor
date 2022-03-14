@@ -32,10 +32,10 @@
 
     public Book book { get; set; }
 
-        protected override void OnParametersSet()
-        {
-            book = repo.Books.FirstOrDefault(x => x.BookId == Id);
-        }
+    protected override void OnParametersSet()
+    {
+        book = repo.Books.FirstOrDefault(x => x.BookId == Id);
+    }
 
     public string EditUrl => $"/admin/books/edit/{book.BookId}";
 
