@@ -60,7 +60,7 @@
 @code {
     [Parameter]
     public long Id { get; set; } = 0;
-    public string ThemeColor => Id == 0 ? "byu" : "primary";
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
     public string TitleText => Id == 0 ? "Add" : "Edit";
     public Book b { get; set; } = new Book();
     public IBookstoreRepository repo => Service;
