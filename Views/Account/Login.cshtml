@@ -1,0 +1,60 @@
+﻿@{
+}
+
+@model LoginModel
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width-device-width" />
+    <title>OnlineBookstore Login</title>
+    <link href="~/lib/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand m-lg-2">OnlineBookstore</span>
+    </div>
+
+    <div class="m-1 p-1">
+
+        <div class="text-danger" asp-validation-summary="All"></div>
+        
+        <form method="post" asp-controller="Account" asp-action="Login">
+
+            <div class="form-floating form-control-lg mb-3">
+                <input class="form-control" asp-for="Username" placeholder="Username">
+                <label asp-for="Username">Username</label>
+            </div>
+            <div class="form-floating form-control-lg mb-3">
+                <input type="password" class="form-control " asp-for="Password" placeholder="Password">
+                <label asp-for="Password">Password</label>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Username">Username:</label>
+                <label asp-for="Username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Password:</label>
+                <label asp-for="Password" class="form-control" type="password" />
+            </div>*@
+
+
+            <button class="btn btn-primary" type="submit">Log In</button>
+
+            <input type="hidden" asp-for="ReturnUrl" />
+
+        </form>
+
+    </div>
+
+
+
+</body>
+
+
+
+</html>
